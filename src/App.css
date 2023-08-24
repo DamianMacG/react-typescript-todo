@@ -15,15 +15,13 @@ body {
   margin: 30px 0;
 }
 
-
 .input-box {
-  width: 100%;
+  max-width: 100%;
   border-radius: 50px;
   padding: 20px 30px;
   font-size: 25px;
   border: none;
   transition: 0.2s;
-  
 }
 
 .button {
@@ -43,4 +41,40 @@ body {
 
 .button:active {
   transform: scale(0.9);
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  max-width: 100%; /* Adjust as needed */
+  padding: 10px; /* Adjust spacing */
+  margin: 10px;
+  background-color: yellow;
+  color: black;
+  border-radius: 10px;
+}
+
+.todo-single {
+  flex: 1; /* Allow the text to flex and take available space */
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+  word-wrap: break-word; /* Allow text wrapping */
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .todo {
+    flex-direction: column; /* Stack todo items vertically */
+    text-align: center; /* Center text within todo items */
+  }
+
+  .todo-single {
+    width: 100%; /* Take full width within the container */
+  }
 }

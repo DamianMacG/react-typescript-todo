@@ -9,10 +9,10 @@ type TodoListProps = {
 
 const TodoList:React.FC<TodoListProps> = ({todos, setTodos}) => {
     
-    return <ul>
+    return <div>
         {todos.map((todo) => (
             <SingleTodo todo={todo} key={todo.id} todos={todos} setTodos={setTodos}/>
         ))}
-    </ul>
+    </div>
 }
 export default TodoList;
