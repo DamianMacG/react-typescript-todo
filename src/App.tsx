@@ -25,12 +25,7 @@ function App() {
     <>
       <h1 className="heading">To-Do List</h1>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos}/>
-      <ul>
-        {todos.map((t) => (
-          <li key={t.id}>{t.todo}</li>
-        ))}
-      </ul>
+      <TodoList todos={todos} setTodos={setTodos} />
     </>
   );
 }
