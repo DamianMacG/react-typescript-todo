@@ -1,6 +1,5 @@
 :root {
   font-family: system-ui, Helvetica, Arial, sans-serif;
-
   color: rgba(255, 255, 255, 0.87);
   background-color: rgb(4, 4, 53);
   display: flex;
@@ -24,12 +23,7 @@ body {
   font-size: 25px;
   border: none;
   transition: 0.2s;
-  box-shadow: inset 0 0 5px rgb(179, 179, 190);
-}
-
-.input-box:focus {
-  box-shadow: 0 0 10px 1000px black;
-  outline: none;
+  
 }
 
 .button {
@@ -39,4 +33,14 @@ body {
   width: 150px;
   font-size: 20px;
   border-radius: 20px;
+  border: none;
+  transition: 0.2s all;
+}
+
+.button:hover {
+  background-color: #79e07e;
+}
+
+.button:active {
+  transform: scale(0.8);
 }
