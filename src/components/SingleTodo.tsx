@@ -2,6 +2,7 @@ import React from "react";
 import { Todo } from "../App";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
+import { useState } from "react";
 
 type SingleTodoProps = {
   todo: Todo;
@@ -10,17 +11,41 @@ type SingleTodoProps = {
 };
 
 const SingleTodo: React.FC<SingleTodoProps> = ({ todo, todos, setTodos }) => {
+  
+  const [edit, setEdit] = useState<boolean>(false);
+  const [editTodo, setEditTodo] = useState<string>(todo.todo);
+
+  const handleEdit = (e: React.FormEvent, id: number) => {
+    e.preventDefault();
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+    );
+    setEdit(false);
+  };
+
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const handleDone = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+  
   return (
     <form className="todo">
-      <span className="todo-single">{todo.todo}</span>
+      <span className="todo-single" onClick={() => handleDone(todo.id)}>{todo.todo}</span>
       <div>
         <span className="icon">
           <AiFillEdit />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDelete(todo.id)}>
           <AiFillDelete />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDone(todo.id)}>
           <MdDone />
         </span>
       </div>
